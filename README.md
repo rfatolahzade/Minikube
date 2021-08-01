@@ -74,6 +74,7 @@ You need to setting up Tunnel to your VMware so run this command with your detai
 ```bash
 ssh -i D:\YOURKEY.ppk -L 8081:localhost:PORTOFYOURDASHBOARD root@VMIP
 ```
+"Do not close your ssh session"
 Now visit your dashboard in your system (your link will looks like mine)
 ```bash
 http://127.0.0.1:8081/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
