@@ -63,12 +63,13 @@ to catchig your secret key run this command:
 kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
 ```
 here you go copy the token and paste it into Enter token field on the login screen.
-NOW active your dashboard:
+# 6.Dashboard
 ```bash
 minikube addons list
 minikube enable addons dashboard
 minikube dashboard --url
 ```
+# 7.Visit dashboard on local
 You need to setting up Tunnel to your VMware so run this command with your details:
 ```bash
 ssh -i D:\YOURKEY.ppk -L 8081:localhost:PORTOFYOURDASHBOARD root@VMIP
