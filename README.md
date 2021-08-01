@@ -66,7 +66,7 @@ here you go copy the token and paste it into Enter token field on the login scre
 # 6.Dashboard
 ```bash
 minikube addons list
-minikube enable addons dashboard
+minikube addons enable dashboard
 minikube dashboard --url
 ```
 # 7.Visit dashboard on local
