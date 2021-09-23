@@ -1637,7 +1637,7 @@ after a while, pods recreated automatically, lets describe our new pods and VPA:
 ```bash
 k describe vpa my-vpa
 ```
-#      Target: Cpu:     587m and  Memory:  262144k will set to pods
+#Target: Cpu:     587m and  Memory:  262144k will set to pods
 ```bash
 k describe pod/my-app-deployment-6b9df99b4-4jrgr | less
 ```
