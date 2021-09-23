@@ -11,9 +11,17 @@ install minikube-linux-amd64 /usr/local/bin/minikube
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 cp kubectl /usr/local/bin/
 chmod +x  /usr/local/bin/kubectl
-
-alias k='kubectl' added to /root/.bashrc then exec bash 
 ```
+In my case I set up these aliases (~/.bashrc) and autocompletion:
+```bash
+cat <<EOF >> ~/.bashrc
+source <(kubectl completion bash)
+source <(minikube completion bash)
+alias k=kubectl
+alias kga='watch -x kubectl get all -o wide'
+EOF
+```
+
 # 2.Start
 ```bash
 minikube start --vm-driver=none
