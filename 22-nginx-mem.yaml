@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  selector:
+    matchLabels:
+      run: nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: k8s.gcr.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 1Gi
+          requests:
+            memory: 0.5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    run: nginx
+spec:
+  ports:
+  - port: 80
+  selector:
+    run: nginx
