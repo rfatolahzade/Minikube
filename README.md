@@ -95,15 +95,6 @@ Here you go ;)
 
 # All about node in minikube
 # Node wasn't ready:
-In my case I set up these aliases (~/.bashrc) and autocompletion:
-```bash
-cat <<EOF >> ~/.bashrc
-source <(kubectl completion bash)
-source <(minikube completion bash)
-alias k=kubectl
-alias kga='watch -x kubectl get all -o wide'
-EOF
-```
 If your Node was not ready check these steps:
 ```bash
 kubectl get pods -n kube-system        #ALL system pods must be ready
