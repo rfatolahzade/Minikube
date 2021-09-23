@@ -77,6 +77,10 @@ minikube addons list
 minikube addons enable dashboard
 minikube dashboard --url
 ```
+TOKEN FOR DASHBOARD: 
+```bash
+kubectl -n kube-system describe secret deployment-controller-token
+```
 # 7.Visit dashboard on local
 You need to setting up Tunnel to your VMware so run this command with your details:
 ```bash
