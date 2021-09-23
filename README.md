@@ -147,8 +147,8 @@ Add this line to your deployment file:
 Sample:
 
 ```bash
-git clone https://github.com/RFinland/kubenode.git
-cd kubenode
+git clone https://github.com/RFinland/Minikube.git
+cd Minikube
 k create -f 1-Using-Labels.yaml	
 ```
 You can see what was you set for your pod(s):
@@ -1264,7 +1264,7 @@ k get vpa
 Then we need to autoscalar:
 ```bash
 git clone https://github.com/RFinland/autoscaler.git
-cd ~/kubenode/autoscaler/vertical-pod-autoscaler
+cd ~/Minikube/autoscaler/vertical-pod-autoscaler
 ```
 run:
 If you already have a autoscaler run :
