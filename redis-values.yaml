@@ -1,0 +1,10 @@
+replica:
+   replicaCount: 2
+
+volumePermissions:
+  enabled: true
+
+securityContext:
+  enabled: true
+  fsGroup: 1001
+  runAsUser: 1001
