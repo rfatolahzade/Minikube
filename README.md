@@ -1698,6 +1698,7 @@ create socat-port.sh with this line:
 touch socat-port.sh
 cat <<EOF > socat-port.sh
 socat TCP4-LISTEN:$1,fork TCP4:$2 &>/dev/null
+[for more](https://www.redhat.com/sysadmin/getting-started-socat)
 EOF
 #OR just run this command (For multiple connections, use the fork option ):
 socat TCP4-LISTEN:51999,fork TCP4:192.168.49.2:8443 &
