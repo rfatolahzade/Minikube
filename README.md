@@ -1663,8 +1663,7 @@ scp admin@192.168.1.209:.minikube/profiles/minikube/client.key .
 #copy minikube config file:
 scp admin@192.168.1.209:~/.kube/config /.kube
 ```
-Change the server,certificate-authority,client-certificate and client-key lines inner config file to use the host ip and the port we just opened:
-You config file will be similar as:
+Change the server,certificate-authority,client-certificate and client-key lines inner config file to use the host ip and the port we just opened,Your config file will be similar as:
 ```bash
 cat <<EOF > ~/.kube/config
 apiVersion: v1
@@ -1693,8 +1692,9 @@ EOF
 # 192.168.1.209 kubernetes
 ```
 On the server: 
+create socat-port.sh with this line:
 ```bash
-touch socat-port.sh with this line:
+touch socat-port.sh
 cat <<EOF > socat-port.sh
 socat TCP4-LISTEN:$1,fork TCP4:$2 &>/dev/null
 EOF
