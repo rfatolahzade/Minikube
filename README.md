@@ -1693,18 +1693,19 @@ EOF
 # 192.168.1.209 kubernetes
 ```
 ### On the server: 
-create socat-port.sh with this line [for more socat options](https://www.redhat.com/sysadmin/getting-started-socat):
+Use socat as a TCP port forwarder, create socat-port.sh with this line [for more socat options](https://www.redhat.com/sysadmin/getting-started-socat)
+For multiple connections, use the fork option:
 ```bash
 touch socat-port.sh
 cat <<EOF > socat-port.sh
 socat TCP4-LISTEN:$1,fork TCP4:$2 &>/dev/null
 EOF
-#OR just run this command (For multiple connections, use the fork option ):
-socat TCP4-LISTEN:51999,fork TCP4:192.168.49.2:8443 &
 ```
 Then run:
 ```bash
 socat-port.sh 51999 192.168.49.2:8443 &
+#OR just run this command:
+socat TCP4-LISTEN:51999,fork TCP4:192.168.49.2:8443 &
 ```
 ### On the client:
 You can see your server stuff as well, you can deploy your app from client to server 
