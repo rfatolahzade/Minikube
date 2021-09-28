@@ -1704,12 +1704,12 @@ Then run:
 ```bash
 socat-port.sh 51999 192.168.49.2:8443 &
 ```
-### on client:
+### On the client:
 You can see your server stuff as well, you can deploy your app from client to server 
 Now you should be able to use the kubectl on the client(your laptop,...) to remote access the minikube on the Server
 The best part about this is that kubectl port-forward should work as normal too in case you need to access services in your cluster.
 Lets try this:
-###  on your client :
+### On the client:
 ```bash
 k  create deploy nginx --image nginx
 ```
@@ -1719,7 +1719,7 @@ As youll see your deployment done as well
 k expose deploy nginx --type NodePort --port 80
 kubectl port-forward service/nginx --address='0.0.0.0' 8080:80
 ```
-### On your client : 
+### On the client:
 ```bash
 curl kubernetes:8080
 ```
