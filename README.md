@@ -1699,6 +1699,8 @@ touch socat-port.sh
 cat <<EOF > socat-port.sh
 socat TCP4-LISTEN:$1,fork TCP4:$2 &>/dev/null
 EOF
+#OR just run this command:
+socat TCP4-LISTEN:51999 TCP4:192.168.49.2:8443 &
 ```
 Then run:
 ```bash
