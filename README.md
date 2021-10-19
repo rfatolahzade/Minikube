@@ -17,8 +17,21 @@ In my case I set up these aliases (~/.bashrc) and autocompletion:
 cat <<EOF >> ~/.bashrc
 source <(kubectl completion bash)
 source <(minikube completion bash)
-alias k=kubectl
+alias k='kubectl'
 alias kga='watch -x kubectl get all -o wide'
+alias kgad='watch -dx kubectl get all -o wide'
+alias kcf='kubectl create -f'
+alias wk='watch -x kubectl'
+alias wkd='watch -dx kubectl'
+alias kd='kubectl delete'
+alias kcc='k config current-context'
+alias kcu='k config use-context'
+alias kg='k get'
+alias kdp ='kubectl describe pod' 
+alias kdd ='kubectl describe deployment'
+alias kds ='kubectl describe svc'
+alias kdr ='kubectl describe replicaset'
+
 EOF
 ```
 
