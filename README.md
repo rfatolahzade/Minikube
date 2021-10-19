@@ -1250,7 +1250,16 @@ cat app-chart/values.yaml | grep 'repository' -n -C3
 Notice the templating key uses the dot ('.') notation to navigate and extract the values from the hierarchy in the values.yaml file.
 In this case, the Helm create feature defaulted the deployed container to be the ubiquitous demonstration application nginx.
 As is, this chart is ready to be deployed since all the defaults have been supplied. A complete set of sensible defaults is a good practice for any chart you author. A good README for your chart should also have a table to reflect these defaults, options, and descriptions.
-Before deploying to Kubernetes, the dry-run feature will list out the resources to the console. This allows you to inspect the injection of the values into the template without committing an installation, a helpful development technique. Observe how the container image name is injected into the template:
+Before deploying to Kubernetes, the dry-run feature will list out the resources to the console. This allows you to inspect the injection of the values into the template without committing an installation, a helpful development technique. Observe how the container image name is injected into the template
+in my case I set my DockerHub repository (daniweb87/nginx):
+```bash 
+image:
+  repository: daniweb87/nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+``` 
+then run below command to see what you got:
 ```bash 
 helm install my-app ./app-chart --dry-run --debug | grep 'image: "' -n -C3
 ``` 
@@ -1262,6 +1271,12 @@ With the version injecting correctly, install it:
 ```bash 
 helm install my-app ./app-chart --set image.pullPolicy=Always
 ``` 
+To expose your app:
+```bash 
+k expose deploy my-app-app-chart  --type NodePort --port 80
+k port-forward service/my-app-app-chart 8080:80
+``` 
+Notice: You have to set portforwarding in your editor (VSCode ,... just add port: 8080 in PORTS tab)
 In a moment the app will start. Inspect its progress:
 ```bash 
 helm list
