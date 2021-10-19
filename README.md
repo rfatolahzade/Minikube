@@ -1461,7 +1461,69 @@ on your nfsserver :
 ```bash
 ls /srv/nfs/kubedata
 ```
+# Kustomize
+Kustomize is a standalone tool to customize Kubernetes objects through a kustomization file.
+Since 1.14, Kubectl also supports the management of Kubernetes objects using a kustomization file. To view Resources found in a directory containing a kustomization file
+### Overview of Kustomize
 
+Kustomize is a tool for customizing Kubernetes configurations. It has the following features to manage application configuration files:
+```bash
+    generating resources from other sources
+    setting cross-cutting fields for resources
+    composing and customizing collections of resources
+```
+### Generating Resources
+ConfigMaps and Secrets hold configuration or sensitive data that are used by other Kubernetes objects, such as Pods. The source of truth of ConfigMaps or Secrets are usually external to a cluster, such as a .properties file or an SSH keyfile. Kustomize has secretGenerator and configMapGenerator, which generate Secret and ConfigMap from files or literals.
+
+### Setting cross-cutting fields
+It is quite common to set cross-cutting fields for all Kubernetes resources in a project. Some use cases for setting cross-cutting fields:
+
+```bash
+    setting the same namespace for all Resources
+    adding the same name prefix or suffix
+    adding the same set of labels
+    adding the same set of annotations
+```
+### Composing and Customizing Resources
+It is common to compose a set of Resources in a project and manage them inside the same file or directory. Kustomize offers composing Resources from different files and applying patches or other customization to them.
+### Composing
+Kustomize supports composition of different resources. The resources field, in the kustomization.yaml file, defines the list of resources to include in a configuration. Set the path to a resource's configuration file in the resources list. 
+
+```bash
+git clone https://github.com/RFinland/Minikube.git
+cd kustomize
+k create -f  nginx-deployment.yaml
+k create -f  nginx-svc.yaml
+kga
+```
+wait for everything goes ready, take a look at pod,deployment and svc name
+```bash
+service/nginx
+pod/nginx-0605556
+deployment.apps/nginx 
+```
+
+now want to change our deployment,service and pod names without change our yaml files once by once:
+create kustomize.yaml file and set resources that we want to change:
+```bash
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namePrefix: dev-
+resources:
+- nginx-deployment.yaml
+- nginx-svc.yaml
+```
+now take a look what we got before applu our changes just run this command in your kustomize directory:
+```bash
+kubectl kustomize 
+#OR 
+ kubectl kustomize ./
+```
+as you'll see namePrefix shown. lets apply this changes to our deployments,svc 
+```bash
+kubectl apply -k $PWD
+kga
+```
 # Horizontal Pod Autoscaler or (HPA) CPU
 First ,We have to enable metrics-server addons
 ```bash
