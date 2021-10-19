@@ -27,10 +27,10 @@ alias kd='kubectl delete'
 alias kcc='k config current-context'
 alias kcu='k config use-context'
 alias kg='k get'
-alias kdp ='kubectl describe pod' 
-alias kdd ='kubectl describe deployment'
-alias kds ='kubectl describe svc'
-alias kdr ='kubectl describe replicaset'
+alias kdp='kubectl describe pod' 
+alias kdd='kubectl describe deployment'
+alias kds='kubectl describe svc'
+alias kdr='kubectl describe replicaset'
 
 EOF
 ```
