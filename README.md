@@ -1332,7 +1332,7 @@ Helm will create a app-chart-0.1.0.tgz package in our working directory, using t
 A user can install from this package instead of a local directory by passing the package as the parameter to helm install.
 ```bash 
 helm install example app-chart-0.1.0.tgz --set service.type=NodePort
-3chack your apps status:
+#chack your apps status:
 helm status my-app
 helm status example
 ```
