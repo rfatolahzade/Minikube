@@ -1524,6 +1524,7 @@ as you'll see namePrefix shown. lets apply this changes to our deployments,svc
 kubectl apply -k $PWD
 kga
 ```
+[for more kustomize options](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
 # Horizontal Pod Autoscaler or (HPA) CPU
 First ,We have to enable metrics-server addons
 ```bash
