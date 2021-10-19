@@ -1336,6 +1336,57 @@ helm install example app-chart-0.1.0.tgz --set service.type=NodePort
 helm status my-app
 helm status example
 ```
+# Create Grafana helm chart
+let's creace a grafana helm chart :
+```bash 
+helm create grafana
+tree grafana
+cat grafana/templates/deployment.yaml | grep 'kind:' -n -B1 -A5
+cat grafana/templates/deployment.yaml | grep 'image:' -n -C3
+cat grafana/values.yaml | grep 'repository' -n -C3
+``` 
+We have to remove nginx default in grafana/values.yaml
+```bash 
+image:
+  repository: daniweb87/grafana
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+```
+and set port:
+```bash 
+service:
+  type: ClusterIP
+  port: 3000
+```
+Also we have to change default port in templates/deployment.yaml
+```bash 
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+```
+then check out pre app:
+```bash  			  
+helm install my-grafana ./grafana --dry-run --debug | grep 'image: "' -n -C3
+#OR 
+helm lint grafana
+```
+set some option:
+```bash 
+helm install my-grafana ./grafana --dry-run --debug --set image.pullPolicy=Always | grep 'image: "' -n -C3
+```
+Lets install our app:
+```bash 
+helm install my-grafana ./grafana  --set image.pullPolicy=Always
+#Now lets see what we got:
+kubectl get all -o wide 
+```
+to expose:
+```bash  
+k expose deploy my-grafana  --type NodePort --port 3000
+k port-forward service/my-grafana 8081:3000
+```
 
 # Dynamically provision NFS persistent volumes with Helm
 
