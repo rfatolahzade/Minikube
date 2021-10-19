@@ -1319,6 +1319,24 @@ helm test
 command can be used to bake testing into your chart usage in CI/CD pipelines.
 The [helm plugin](https://helm.sh/docs/topics/plugins/) opens Helm for many extension possibilities. Here is a [curated list](https://helm.sh/docs/community/related/) of helpful extensions for Helm.
 
+# Package it all up to share
+So far in this tutorial, we've been using the helm install command to install a local, unpacked chart. However, 
+if you are looking to share your charts with your team or the community, your consumers will typically install the charts from a tar package.
+We can use helm package to create the tar package:
+
+```bash 
+helm package ./app-chart
+#Successfully packaged chart and saved it to: /home/admin/app-chart-0.1.0.tgz
+``` 
+Helm will create a app-chart-0.1.0.tgz package in our working directory, using the name and version from the metadata defined in the Chart.yaml file.
+A user can install from this package instead of a local directory by passing the package as the parameter to helm install.
+```bash 
+helm install example app-chart-0.1.0.tgz --set service.type=NodePort
+3chack your apps status:
+helm status my-app
+helm status example
+```
+
 # Dynamically provision NFS persistent volumes with Helm
 
 Install the Helm:
