@@ -1636,6 +1636,78 @@ k logs -f helloworld
 #YOUR new envs HERE
 #Hello! My company name is Startup1
 ```	
+Export helm template helloworld to podProd.yaml:
+```bash	
+rm helloworld/templates/pod.yaml
+helm template helloworld > podProd.yaml
+cat podProd.yaml
+```	
+Result:
+```bash	
+# Source: helloworld/templates/pod1.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloworld
+spec:
+  containers:
+  - args:
+    - /bin/echo My name is Chris. I work for 
+      department. Our company name is Startup1
+    command:
+    - /bin/sh
+    - -c
+    env: null
+    image: alpine
+    name: hello
+  restartPolicy: Never
+```	
+
+Lets add some new labels:
+```bash	
+cat <<EOF > kustomization.yaml
+commonLabels:
+  metrics: level1
+resources:
+- podProd.yaml
+
+EOF
+```	
+Export kustomize build to podProd2.yaml:
+```bash	
+kustomize build  > podProd2.yaml
+cat  podProd2.yaml
+```	
+Result:
+```bash	
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    metrics: level1
+  name: helloworld
+spec:
+  containers:
+  - args:
+    - /bin/echo My name is Chris. I work for department. Our company name is Startup1
+    command:
+    - /bin/sh
+    - -c
+    env: null
+    image: alpine
+    name: hello
+  restartPolicy: Never
+```	
+Make sure app deleted:
+```bash	
+helm delete helloworld
+k create -f podProd2.yaml
+```
+Now lets take a look to our new changes:
+```bash		
+kdp helloworld | less
+kdp helloworld |  grep metrics
+```	
 
 
 # Horizontal Pod Autoscaler or (HPA) CPU

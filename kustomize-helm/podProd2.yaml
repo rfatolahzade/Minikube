@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    metrics: level1
+  name: helloworld
+spec:
+  containers:
+  - args:
+    - /bin/echo My name is Chris. I work for department. Our company name is Startup1
+    command:
+    - /bin/sh
+    - -c
+    env: null
+    image: alpine
+    name: hello
+  restartPolicy: Never
