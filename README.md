@@ -1581,6 +1581,11 @@ filled by what we wrote inner values.yaml file:
  ```
  
 Now lets change it with kusomize:
+we just added employeeName and employeeDepartment as below:
+```bash
+   - /bin/echo My name is {{ .Values.employeeName}}. I work for {{ .Values.employeeDepartment}} department. Our company name is {{ .Values.companyName}}
+```
+ let create kustomization.yaml :
 ```bash	
 cat <<EOF > kustomization.yaml
 patchesJson6902:
@@ -1596,7 +1601,7 @@ resources:
 - helloworld/templates/pod.yaml
 EOF	
 ```	
-Save kustomize build as pod in new file helloworld/templates/pod1.yaml
+look at the kustomize build when we are going to create new pod then save it in helloworld/templates/pod1.yaml file:
 ```bash	
 kustomize build > helloworld/templates/pod1.yaml
 cat  helloworld/templates/pod1.yaml
@@ -1626,6 +1631,7 @@ Modify values:
 cat <<EOF > helloworld/values.yaml
 employeeName: Chris
 companyName: Startup1
+employeeDepartment: MDD
 EOF
 ```	
 take a look to new values file:
@@ -1637,6 +1643,7 @@ Lets delete helloworld app then install it with new envs:
 helm ls
 helm delete helloworld
 helm install helloworld helloworld
+#DONT mention on Error: INSTALLATION FAILED: pods "helloworld" already exists
 ```	
 then Logs will be changed to:
 ```bash	
@@ -1660,7 +1667,7 @@ metadata:
 spec:
   containers:
   - args:
-    - /bin/echo My name is Chris. I work for 
+    - /bin/echo My name is Chris. I work for MDD
       department. Our company name is Startup1
     command:
     - /bin/sh
@@ -1697,7 +1704,7 @@ metadata:
 spec:
   containers:
   - args:
-    - /bin/echo My name is Chris. I work for department. Our company name is Startup1
+    - /bin/echo My name is Chris. I work for department MDD. Our company name is Startup1
     command:
     - /bin/sh
     - -c
