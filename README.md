@@ -1571,7 +1571,15 @@ k logs -f helloworld
 ```	
 Result:
 companyName: ABC Company
-
+as you can see the 
+```bash
+ args: ["/bin/echo Hello! My company name is {{ .Values.companyName}}"]
+ ```
+filled by what we wrote inner values.yaml file:
+```bash
+ companyName: ABC Company
+ ```
+ 
 Now lets change it with kusomize:
 ```bash	
 cat <<EOF > kustomization.yaml
