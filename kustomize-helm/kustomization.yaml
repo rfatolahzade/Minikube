@@ -1,5 +1,6 @@
 commonLabels:
-  metrics: level1
+  env: prod
+  metrics: level2
 resources:
-- podProd.yaml
+- discourse.yaml
 

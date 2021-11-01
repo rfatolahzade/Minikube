@@ -1709,6 +1709,47 @@ kdp helloworld | less
 kdp helloworld |  grep metrics
 ```	
 
+Other Example:
+```bash		
+helm template discourse bitnami/discourse > discourse.yaml
+cat discourse.yaml
+```		
+Set some ens:
+```bash		
+cat <<EOF > kustomization.yaml
+commonLabels:
+  env: prod
+  metrics: level2
+resources:
+- discourse.yaml
+
+EOF
+```
+Create the app:
+```bash		
+k create -k .
+```		
+Result:
+```bash		
+serviceaccount/discourse-redis created
+configmap/discourse-redis-configuration created
+configmap/discourse-redis-health created
+configmap/discourse-redis-scripts created
+configmap/discourse created
+secret/discourse-postgresql created
+secret/discourse-discourse created
+service/discourse-postgresql created
+service/discourse-postgresql-headless created
+service/discourse-redis-headless created
+service/discourse-redis-master created
+service/discourse created
+statefulset.apps/discourse-postgresql created
+statefulset.apps/discourse-redis-master created
+```		
+Take a look to our deployed envs:
+```bash		
+k describe  pod/discourse-redis-master-0  | grep metrics
+```		
 
 # Horizontal Pod Autoscaler or (HPA) CPU
 First ,We have to enable metrics-server addons
