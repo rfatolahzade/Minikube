@@ -1588,6 +1588,54 @@ resources:
 - helloworld/templates/pod.yaml
 EOF	
 ```	
+Save kustomize build as pod in new file helloworld/templates/pod1.yaml
+```bash	
+kustomize build > helloworld/templates/pod1.yaml
+cat  helloworld/templates/pod1.yaml
+```
+Result:
+```bash	
+Result:
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloworld
+spec:
+  containers:
+  - args:
+    - /bin/echo My name is {{ .Values.employeeName}}. I work for {{ .Values.employeeDepartment}}
+      department. Our company name is {{ .Values.companyName}}
+    command:
+    - /bin/sh
+    - -c
+    env: null
+    image: alpine
+    name: hello
+  restartPolicy: Never
+```	
+Modify values:
+```bash	
+cat <<EOF > helloworld/values.yaml
+employeeName: Chris
+companyName: Startup1
+EOF
+```	
+take a look to new values file:
+```bash	
+cat helloworld/values.yaml
+```	
+Lets delete helloworld app then install it with new envs:
+```bash	
+helm ls
+helm delete helloworld
+helm install helloworld helloworld
+```	
+then Logs will be changed to:
+```bash	
+k logs -f helloworld
+#YOUR new envs HERE
+#Hello! My company name is Startup1
+```	
 
 
 # Horizontal Pod Autoscaler or (HPA) CPU

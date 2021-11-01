@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloworld
+spec:
+  containers:
+  - args:
+    - /bin/echo My name is {{ .Values.employeeName}}. I work for {{ .Values.employeeDepartment}}
+      department. Our company name is {{ .Values.companyName}}
+    command:
+    - /bin/sh
+    - -c
+    env: null
+    image: alpine
+    name: hello
+  restartPolicy: Never
