@@ -1525,6 +1525,71 @@ kubectl apply -k $PWD
 kga
 ```
 [for more kustomize options](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
+# Kustomize Helm
+Let's create a sample helm project:
+```bash
+cd Minikube
+mkdir -p kustomize-helm
+cd kustomize-helm/
+helm create helloworld
+#Remove unnecessary files:
+rm -rf helloworld/templates/*
+rm helloworld/values.yaml
+rm -rf helloworld/charts/
+```
+
+Setup of our pod placed in helloworld/templates/pod.yaml: 
+```bash
+cat <<EOF > helloworld/templates/pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloworld
+spec:
+  restartPolicy: Never
+  containers:
+  - name: hello
+    image: alpine
+    env:
+    command: ["/bin/sh","-c"]
+    args: ["/bin/echo Hello! My company name is {{ .Values.companyName}}"]
+EOF	
+```
+
+Setup of our values placed in helloworld/values.yaml: 
+```bash	
+cat <<EOF > helloworld/values.yaml
+companyName: ABC Company
+EOF	
+```	
+Lets install this app:
+```bash	
+helm install helloworld helloworld
+#take a look to logs:
+k logs -f helloworld
+```	
+Result:
+companyName: ABC Company
+
+Now lets change it with kusomize:
+```bash	
+cat <<EOF > kustomization.yaml
+patchesJson6902:
+- target:
+    version: v1
+    kind: Pod
+    name: helloworld
+  patch: |-
+    - op: replace
+      path: /spec/containers/0/args
+      value: ["/bin/echo My name is {{ .Values.employeeName}}. I work for {{ .Values.employeeDepartment}} department. Our company name is {{ .Values.companyName}}"]
+resources:
+- helloworld/templates/pod.yaml
+EOF	
+```	
+
+
 # Horizontal Pod Autoscaler or (HPA) CPU
 First ,We have to enable metrics-server addons
 ```bash
