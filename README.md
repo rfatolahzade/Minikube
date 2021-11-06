@@ -2166,5 +2166,6 @@ kubectl get -f myapp.yaml
 #STATUS: Running
 ```
 
+[Development with DevSpace] (https://github.com/rfinland/Minikube/tree/master/devspace/README.md)
 
 Have fun!
