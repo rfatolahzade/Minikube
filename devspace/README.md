@@ -43,3 +43,8 @@ Hello from index.js!
 or visit:
 http://localhost:8090
 Now if you change the index.js file, because of hot reloading you can see your changes ater reresh your browser.
+
+To purge your app :
+```bash
+devspace purge
+```
