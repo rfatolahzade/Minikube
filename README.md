@@ -15,8 +15,6 @@ chmod +x  /usr/local/bin/kubectl
 In my case I set up these aliases (~/.bashrc) and autocompletion:
 ```bash
 cat <<EOF >> ~/.bashrc
-source <(kubectl completion bash)
-source <(minikube completion bash)
 alias k='kubectl'
 alias kga='watch -x kubectl get all -o wide'
 alias kgad='watch -dx kubectl get all -o wide'
@@ -28,9 +26,12 @@ alias kcc='k config current-context'
 alias kcu='k config use-context'
 alias kg='k get'
 alias kdp='k describe pod' 
+alias kdes='k describe'
 alias kdd='k describe deployment'
 alias kds='k describe svc'
 alias kdr='k describe replicaset'
+alias kk='k3s kubectl'
+alias vk='k --kubeconfig ./kubeconfig.yaml'
 
 EOF
 ```
