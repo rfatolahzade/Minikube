@@ -2168,4 +2168,11 @@ kubectl get -f myapp.yaml
 
 [Development with DevSpace](https://github.com/rfinland/Minikube/tree/master/devspace/README.md)
 
+# namespace stuck into termination
+If your namespace stuck into termination state do these steps:
+```bash
+kubectl delete ns mynamespace
+./delete_stuck_ns.sh mynamespace
+```
+
 Have fun!
