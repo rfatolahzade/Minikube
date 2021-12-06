@@ -30,7 +30,7 @@ alias kdes='k describe'
 alias kdd='k describe deployment'
 alias kds='k describe svc'
 alias kdr='k describe replicaset'
-alias kk='k3s kubectl'
+#alias kk='k3s kubectl'
 alias vk='k --kubeconfig ./kubeconfig.yaml'
 
 EOF
