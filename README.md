@@ -32,6 +32,8 @@ alias kds='k describe svc'
 alias kdr='k describe replicaset'
 #alias kk='k3s kubectl'
 alias vk='k --kubeconfig ./kubeconfig.yaml'
+alias kcg='k config get-contexts'
+alias kgaks='watch -x kubectl get all -o wide -n kube-system'
 
 EOF
 ```
