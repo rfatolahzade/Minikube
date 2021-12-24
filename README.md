@@ -86,7 +86,7 @@ minikube kubectl -- get pods -A
   - [VPA](../master/VPA/README.md)
   - [RemoteAccessToCluster](../master/RemoteAccessToCluster/README.md)
   - [Development with DevSpace](../master/devspace/README.md)
-  - [NameSpaceStuckIntosTermination](../master/nstermination/README.md)
+  - [NameSpaceStuckIntoTermination](../master/nstermination/README.md)
   - [kubefwd](../master/kubefwd/README.md)
 
 
