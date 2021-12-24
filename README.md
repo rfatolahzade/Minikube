@@ -90,5 +90,13 @@ minikube kubectl -- get pods -A
   - [NameSpaceStuckIntoTermination](../master/nstermination/README.md)
   - [kubefwd](../master/kubefwd/README.md)
 
+#### Relative repositories:
+  - [Kind](https://github.com/rfinland/Kind)
+  - [java-maven app with Jenkins](https://github.com/rfinland/simple-java-maven-app)
+  - [ArgoCD](https://github.com/rfinland/argocd)
+  - [Okteto](https://github.com/rfinland/Okteto-HelloWorld)
+  - [Autoscaler](https://github.com/rfinland/autoscaler)
+  - [tilt](https://github.com/rfinland/tilt-example-html)
+  - [NFS Subdir External Provisioner](https://github.com/rfinland/nfs-subdir-external-provisioner)
 
 Have fun!
