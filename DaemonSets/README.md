@@ -38,4 +38,4 @@ If you delete youe daemonset:
 k delete daemonset.apps/nginx-daemonset 
 ```
 All of your pods will be delete
-Also you can use nodeSelector on your yaml file of daemonse (think about it)
+Also you can use nodeSelector on your yaml file of daemonse (think about it).
