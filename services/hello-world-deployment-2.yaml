@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-deployment-2
+spec:
+  selector:
+    matchLabels:
+      greeting: hello
+      version: two
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        greeting: hello
+        version: two
+    spec:
+      containers:
+      - name: hello-app-2
+        image: "rfinland/hello:2.0"
+        env:
+        - name: "PORT"
+          value: "8080"

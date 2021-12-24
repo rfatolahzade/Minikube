@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: rfinland.net
+    http:
+      paths:
+        - path: /
+          pathType: Exact
+          backend:
+            service:
+              name: hello-world-1
+              port:
+                number: 60000
+        - path: /v2
+          pathType: Exact
+          backend:
+            service:
+              name: hello-world-2
+              port:
+                number: 80
