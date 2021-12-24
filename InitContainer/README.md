@@ -46,3 +46,36 @@ and see Events lists
 k describe deployment 
 ```
 You can see your command : "/dani" that ruined everything.
+
+This example defines a simple Pod that has two init containers. The first waits for myservice, and the second waits for mydb. Once both init containers complete, the Pod runs the app container from its spec section.
+
+You can start this Pod by running:
+```
+git clone https://github.com/rfinland/Minikube.git
+cd Minikube
+cat myapp.yaml
+kubectl apply -f myapp.yaml
+#And check on its status with:
+kubectl get -f myapp.yaml
+#STATUS: Init:0/2 
+```
+or for more details:
+```bash
+kubectl describe -f myapp.yaml
+#State:Waiting
+```
+To see logs for the init containers in this Pod, run:
+```bash
+kubectl logs myapp-pod -c init-myservice # Inspect the first init container
+kubectl logs myapp-pod -c init-mydb      # Inspect the second init container
+```
+
+At this point, those init containers will be waiting to discover Services named mydb and myservice.
+Here's a configuration you can use to make those Services appear:
+
+```bash
+cat services.yaml
+kubectl apply -f services.yaml
+kubectl get -f myapp.yaml
+#STATUS: Running
+```
