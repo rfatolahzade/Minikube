@@ -1,5 +1,4 @@
 @echo off
-cd D:\1399\Universe\Minikube
 set /p UserInputPath=What Directory would you like?
 mkdir %UserInputPath%
 cd %UserInputPath%
