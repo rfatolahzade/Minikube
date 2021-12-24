@@ -2,22 +2,27 @@
 minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
 All you need is Docker (or similarly compatible) container or a Virtual Machine environment, and Kubernetes is a single command away: minikube start
 ##### Requirements
-In some cases you need this packages:
+The Kubernetes command-line tool, **kubectl**, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. 
+Install kubectl on Linux:
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+cp kubectl /usr/local/bin/
+chmod +x  /usr/local/bin/kubectl
+```
+In some cases you need these packages:
 ```bash
 apt install -y socat
 apt install -y  apt-transport-https
 apt install -y conntrack
 apt install -y  virtualbox virtualbox-ext-pack
-
-####Minikube
+```
+##### Installation
+To install the latest minikube stable release on x86-64 Linux using binary download:
+```bash
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 install minikube-linux-amd64 /usr/local/bin/minikube
-
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-cp kubectl /usr/local/bin/
-chmod +x  /usr/local/bin/kubectl
 ```
-In my case I set up these aliases (~/.bashrc) and autocompletion:
+In my case I set up these very useful aliases (~/.bashrc) and autocompletion:
 ```bash
 cat <<EOF >> ~/.bashrc
 alias k='kubectl'
@@ -42,20 +47,39 @@ alias kgaks='watch -x kubectl get all -o wide -n kube-system'
 
 EOF
 ```
+I use these aliases for minikube,k3s,k3d,vcluster 
 
-# 2.Start
+# Start your cluster
+From a terminal with administrator access (but not logged in as root), run:
 ```bash
-minikube start --vm-driver=none
+minikube start 
 systemctl enable kubelet.service
 ```
+If minikube fails to start, see the drivers [drivers](https://minikube.sigs.k8s.io/docs/drivers) page for help setting up a compatible container or virtual-machine manager.Your command will look like:
+```bash
+minikube start --vm-driver=none
+```
 # Check out
+Let's see what we have done till now:
 ```bash
 k cluster-info
-kubectl get po -A 
-OR
-minikube kubectl -- get po -A
+kubectl get pods -A 
+#OR
+minikube kubectl -- get pods -A
 ```
-# 3.Creating a sample user
+# Dashboard
+Minikube has integrated support for the Kubernetes Dashboard UI.
+```bash
+minikube addons list
+minikube addons enable dashboard
+#OR just run:minikube dashboard
+```
+Getting just the dashboard URL
+If you don’t want to open a web browser, the dashboard command can also simply emit a URL:
+```bash
+minikube dashboard --url
+```
+# Creating a sample user
 ```bash
 touch dashboard-adminuser.yaml
 ```
@@ -67,7 +91,7 @@ metadata:
   name: admin-user
   namespace: kubernetes-dashboard
 ```
-# 4.Creating a ClusterRoleBinding
+# Creating a ClusterRoleBinding
 ```bash
 touch rolebinding.yaml 
 ```
@@ -86,23 +110,17 @@ subjects:
   name: admin-user
   namespace: kubernetes-dashboard
 ```
-# 5.Your Token
+# Your Token
 to catchig your secret key run this command:
 ```bash
 kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
 ```
 here you go copy the token and paste it into Enter token field on the login screen.
-# 6.Dashboard
-```bash
-minikube addons list
-minikube addons enable dashboard
-minikube dashboard --url
-```
-TOKEN FOR DASHBOARD: 
+Token for your dashboard:
 ```bash
 kubectl -n kube-system describe secret deployment-controller-token
 ```
-# 7.Visit dashboard on local
+# Visit dashboard on local
 You need to setting up Tunnel to your VMware so run this command with your details:
 ```bash
 ssh -i D:\YOURKEY.ppk -L 8081:localhost:PORTOFYOURDASHBOARD root@VMIP
@@ -112,18 +130,19 @@ Now visit your dashboard on your system (your link will looks like mine)
 ```bash
 http://127.0.0.1:8081/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
 ```
-Here you go ;)
+Here you go! ;)
 
 # All about node in minikube
 # Node wasn't ready:
 If your Node was not ready check these steps:
 ```bash
-kubectl get pods -n kube-system        #ALL system pods must be ready
+kubectl get pods -n kube-system        #ALL Kube-System pods must be ready
 ```
 ###### Check which node wasn't in ready state:
 ```bash
     kubectl get nodes 
-    kubectl describe node nodename #nodename which is not in readystate.
+    kubectl describe node nodename #nodename which is not in ready state.
+    #in my case minikube-m03 is not ready:
     kubectl describe node minikube-m03
 ```
 ###### ssh to the node:
@@ -144,6 +163,7 @@ free -m
 Verify cpu utilization with top command. and make sure any process is not taking an unexpected memory.
 
 # Node Labeling:
+Labels are key/value pairs that are attached to objects, such as pods. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but do not directly imply semantics to the core system. Labels can be used to organize and to select subsets of objects. Labels can be attached to objects at creation time and subsequently added and modified at any time. Each object can have a set of key/value labels defined. Each Key must be unique for a given object.
 ###### How to set Label to Nodes:
 ```bash
 k label node minikube-m02 demo=true
