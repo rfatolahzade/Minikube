@@ -72,44 +72,8 @@ To learn how to enable Dashboard:
 [Dashboard](https://github.com/rfinland/Minikube/blob/master/dashboard/README.md)
 To learn All about nodes:
 [All about nodes](https://github.com/rfinland/Minikube/blob/master/nodes/README.md)
-# DaemeoSets
-A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
-
-Some typical uses of a DaemonSet are:
-- running a cluster storage daemon on every node
-- running a logs collection daemon on every node
-- running a node monitoring daemon on every node
-
-In a simple case, one DaemonSet, covering all nodes, would be used for each type of daemon. A more complex setup might use multiple DaemonSets for a single type of daemon, but with different flags and/or different memory and cpu requests for different hardware types.
-```bash
-k apply -f 2-Using-Daemonset.yaml
-k get ds
-```
-First it will be set demotype=nginx-daemonset-demo to all of the nodes then Deployed on all of them. 
-Then If you add a new node :
-```bash
-minikube node add
-```
-Atleast your new node gets ready (a copy of a Pod runs as well) :
-```bash
-kga 
-```
-
-```bash
-#Watch list of ds system:
-k get daemonset -n kube-system
-#Describe your daemonset:
-k describe daemonset nginx-daemonset
-k describe pod/nginx-daemonset-ldbjz
-```
-
-If you delete youe daemonset:
-```bash
-k delete daemonset.apps/nginx-daemonset 
-```
-All of your pods will be delete
-Also you can use nodeSelector on your yaml file of daemonse (think about it)
-
+To learn DaemonSets:
+[DaemonSets](https://github.com/rfinland/Minikube/blob/master/DaemonSets/README.md)
 # JOB
 A Job creates one or more Pods and will continue to retry execution of the Pods until a specified number of them successfully terminate. As pods successfully complete, the Job tracks the successful completions. When a specified number of successful completions is reached, the task (ie, Job) is complete. Deleting a Job will clean up the Pods it created. Suspending a Job will delete its active Pods until the Job is resumed again.
 
