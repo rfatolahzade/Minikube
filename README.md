@@ -69,10 +69,10 @@ kubectl get pods -A
 minikube kubectl -- get pods -A
 ```
 # Table and Content
-    - [Dashboard](dashboard/README.md)
-    - [All about nodes](nodes/README.md)
-    - [DaemonSets](DaemonSets/README.md)
-    - [Job-CronJob](jobs/README.md)
+  - [Dashboard](../master/dashboard/README.md)
+  - [Nodes](../master/nodes/README.md)
+  - [DaemonSets](../master/DaemonSets/README.md)
+  - [Job-CronJob](../master/jobs/README.md)
 
 # Init Container
 Init containers: specialized containers that run before app containers in a Pod. Init containers can contain utilities or setup scripts not present in an app image.
