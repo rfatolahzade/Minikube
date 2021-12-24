@@ -1,4 +1,4 @@
-# namespace stuck into termination
+# Namespace stuck into termination
 If your namespace stuck into termination state after run this step:
 ```bash
 kubectl delete ns mynamespace
