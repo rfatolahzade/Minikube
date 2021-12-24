@@ -95,6 +95,7 @@ minikube kubectl -- get pods -A
   - [parse](https://github.com/rfinland/parse)
   - [ArgoCD](https://github.com/rfinland/argocd)
   - [vcluster](https://github.com/rfinland/vcluster)
+  - [Devspace-Vcluster-Argocd-prod](https://github.com/rfinland/Devspace-vcluster-argocd-prod)
   - [nomad](https://github.com/rfinland/nomad)
   - [bitnami-charts](https://github.com/rfinland/bitnami-charts)
   - [Okteto](https://github.com/rfinland/Okteto-HelloWorld)
