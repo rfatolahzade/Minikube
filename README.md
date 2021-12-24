@@ -87,6 +87,7 @@ minikube kubectl -- get pods -A
   - [RemoteAccessToCluster](../master/RemoteAccessToCluster/README.md)
   - [Development with DevSpace](../master/devspace/README.md)
   - [nstermination](../master/nstermination/README.md)
+  - [kubefwd](../master/kubefwd/README.md)
 
 
 Have fun!
