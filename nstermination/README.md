@@ -1,11 +1,11 @@
 # namespace stuck into termination
-If your namespace stuck into termination state do these steps:
+If your namespace stuck into termination state after run this step:
 ```bash
 kubectl delete ns mynamespace
-#in other terminal or ctrl+c on current termianl then run:
-./delete_stuck_ns.sh mynamespace
 ```
-inner delete_stuck_ns.sh :
+
+In other terminal or press ctrl+c on current terminal then exec delete_stuck_ns.sh with pass your namespace name as below:
+The delete_stuck_ns.sh contains these steps:
 ```bash
 #!/usr/bin/env bash
 
@@ -23,6 +23,10 @@ for ns in $TERMINATING_NS
 do
     delete_namespace $ns
 done
-``bash
+```
+So run this command to delete stuck namespace:
 
+```bash
+./delete_stuck_ns.sh YOURNAMESPACE
+```
 After a while your namespace will be deleted as well.
