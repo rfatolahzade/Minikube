@@ -1,6 +1,6 @@
 
 # Dashboard
-![Dashboard](images/ui-dashboard.png)
+![Dashboard](../images/ui-dashboard.png)
 Minikube has integrated support for the Kubernetes Dashboard UI.
 ```bash
 minikube addons list
