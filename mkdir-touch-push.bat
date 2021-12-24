@@ -8,7 +8,7 @@ nano README.md
 echo "Set it in README.md:"
 echo   - [%UserInputPath%](../master/%UserInputPath%/README.md)
 sleep 5
-set /p Pushtime=Would you like to push changes?
+set /p Pushtime=Would you like to push changes FIRST Save base README and then Press ENTR:
 cd ../
 git add .
 git commit -m "%UserInputPath%"
