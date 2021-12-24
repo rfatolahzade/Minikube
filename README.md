@@ -85,9 +85,7 @@ minikube kubectl -- get pods -A
   - [HPA](../master/HPA/README.md)
   - [VPA](../master/VPA/README.md)
   - [RemoteAccessToCluster](../master/RemoteAccessToCluster/README.md)
-
-
-[Development with DevSpace](https://github.com/rfinland/Minikube/tree/master/devspace/README.md)
+  - [Development with DevSpace](../master/devspace/README.md)
 
 # namespace stuck into termination
 If your namespace stuck into termination state do these steps:
