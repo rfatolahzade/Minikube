@@ -50,7 +50,7 @@ EOF
 ```
 I use these aliases for minikube,k3s,k3d,vcluster 
 
-# Start your cluster
+# Start cluster
 From a terminal with administrator access (but not logged in as root), run:
 ```bash
 minikube start 
