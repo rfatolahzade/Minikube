@@ -71,6 +71,7 @@ minikube kubectl -- get pods -A
 # Table and Content
   - [Dashboard](../master/dashboard/README.md)
   - [Nodes](../master/nodes/README.md)
+  - [Services](../master/services/README.md)
   - [DaemonSets](../master/DaemonSets/README.md)
   - [Job-CronJob](../master/jobs/README.md)
   - [Init Container](../master/InitContainer/README.md)
