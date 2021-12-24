@@ -91,16 +91,6 @@ minikube kubectl -- get pods -A
   - [kubefwd](../master/kubefwd/README.md)
 
 #### Relative repositories:
-  - [Kind](https://github.com/rfinland/Kind)
-  - [Parse](https://github.com/rfinland/parse)
-  - [ArgoCD](https://github.com/rfinland/argocd)
-  - [Vcluster](https://github.com/rfinland/vcluster)
-  - [Devspace-Vcluster-Argocd-prod](https://github.com/rfinland/Devspace-vcluster-argocd-prod)
-  - [Nomad](https://github.com/rfinland/nomad)
-  - [Bitnami-charts](https://github.com/rfinland/bitnami-charts)
-  - [Okteto](https://github.com/rfinland/Okteto-HelloWorld)
-  - [Autoscaler](https://github.com/rfinland/autoscaler)
-  - [Tilt](https://github.com/rfinland/tilt-example-html)
-  - [NFS Subdir External Provisioner](https://github.com/rfinland/nfs-subdir-external-provisioner)
+  - [Kind](https://github.com/rfinland/Kind) , [Parse](https://github.com/rfinland/parse) , [ArgoCD](https://github.com/rfinland/argocd) , [Vcluster](https://github.com/rfinland/vcluster) , [Devspace-Vcluster-Argocd-prod](https://github.com/rfinland/Devspace-vcluster-argocd-prod) , [Nomad](https://github.com/rfinland/nomad) , [Bitnami-charts](https://github.com/rfinland/bitnami-charts) , [Okteto](https://github.com/rfinland/Okteto-HelloWorld) , [Autoscaler](https://github.com/rfinland/autoscaler) , [Tilt](https://github.com/rfinland/tilt-example-html) , [NFS Subdir External Provisioner](https://github.com/rfinland/nfs-subdir-external-provisioner)
 
 Have fun!
