@@ -30,3 +30,7 @@ So run this command to delete stuck namespace:
 ./delete_stuck_ns.sh YOURNAMESPACE
 ```
 After a while your namespace will be deleted as well.
+```bash
+k get ns
+```
+Here you go.
