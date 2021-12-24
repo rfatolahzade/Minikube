@@ -2,7 +2,7 @@
 # Learn Kubernetes with Minikube (Easy Steps)
 minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
 All you need is Docker (or similarly compatible) container or a Virtual Machine environment, and Kubernetes is a single command away: minikube start
-##### Requirements
+# Requirements
 The Kubernetes command-line tool, **kubectl**, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. 
 Install kubectl on Linux:
 ```bash
@@ -17,7 +17,7 @@ apt install -y  apt-transport-https
 apt install -y conntrack
 apt install -y  virtualbox virtualbox-ext-pack
 ```
-##### Installation
+# Installation
 To install the latest minikube stable release on x86-64 Linux using binary download:
 ```bash
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
