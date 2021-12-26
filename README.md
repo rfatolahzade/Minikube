@@ -1,4 +1,4 @@
-![Learn Kubernetes with Minikube](../images/minikube-logo.jpg)
+![Learn Kubernetes with Minikube](https://github.com/rfinland/Minikube/blob/main/images/minikube-logo.jpg)
 # Learn Kubernetes with Minikube (Easy Steps)
 minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
 All you need is Docker (or similarly compatible) container or a Virtual Machine environment, and Kubernetes is a single command away: minikube start
