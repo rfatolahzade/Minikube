@@ -29,7 +29,7 @@ k get cm mysql-demo-config -o yaml       #you can see your /home/minikube/misc/m
 ```
 then create a pod :
 ```bash
-k create -f  6-pod-configmap-mysql-volume.yaml
+k create -f  16-pod-configmap-mysql-volume.yaml
 k exec -it busybox sh 
 ls /mydata #my.cnf is there
 ```
