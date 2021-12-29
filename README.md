@@ -69,7 +69,7 @@ kubectl get pods -A
 minikube kubectl -- get pods -A
 ```
 # Table and Content
-  - [Dashboard](https://github.com/rfinland/Minikube/blob/main/dashboard/Dashboard.md)
+  - [Dashboard](https://github.com/rfinland/Minikube/blob/cb18c9e895d411dfa21c3aeae157adcb50b5e8a7/dashboard/Dashboard.md)
   - [Nodes](https://github.com/rfinland/Minikube/blob/main/nodes/Nodes.md)
   - [Services](https://github.com/rfinland/Minikube/blob/main/services/Services.md)
   - [DaemonSets](https://github.com/rfinland/Minikube/blob/main/DaemonSets/DaemonSets.md)
