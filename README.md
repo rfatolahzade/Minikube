@@ -1,4 +1,4 @@
-![Learn Kubernetes with Minikube](https://github.com/rfinland/Minikube/blob/main/images/minikube-logo.jpg)
+![Learn Kubernetes with Minikube](images/minikube-logo.jpg)
 # Learn Kubernetes with Minikube (Easy Steps)
 minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
 All you need is Docker (or similarly compatible) container or a Virtual Machine environment, and Kubernetes is a single command away: minikube start
@@ -69,28 +69,28 @@ kubectl get pods -A
 minikube kubectl -- get pods -A
 ```
 # Table and Content
-  - [Dashboard](../master/dashboard/README.md)
-  - [Nodes](../master/nodes/README.md)
-  - [Services](../master/services/README.md)
-  - [DaemonSets](../master/DaemonSets/README.md)
-  - [Job-CronJob](../master/jobs/README.md)
-  - [Init Container](../master/InitContainer/README.md)
-  - [PV-PVC](../master/PV-PVC/README.md)
-  - [Secrets](../master/Secrets/README.md)
-  - [ConfigMaps](../master/ConfigMaps/README.md)
-  - [ResourceQuota](../master/ResourceQuota/README.md)
-  - [NFS](../master/NFS/README.md)
-  - [Statefulsets](../master/Statefulsets/README.md)
-  - [Helm](../master/Helm/README.md)
-  - [Kustomize](../master/Kustomize/README.md)
-  - [HPA](../master/HPA/README.md)
-  - [VPA](../master/VPA/README.md)
-  - [RemoteAccessToCluster](../master/RemoteAccessToCluster/README.md)
-  - [DevSpace](../master/devspace/README.md)
-  - [NameSpaceStuckIntoTermination](../master/nstermination/README.md)
-  - [kubefwd](../master/kubefwd/README.md)
+  - [Dashboard](../master/dashboard/Dashboard.md)
+  - [Nodes](../master/nodes/Nodes.md)
+  - [Services](../master/services/Services.md)
+  - [DaemonSets](../master/DaemonSets/DaemonSets.md)
+  - [Job-CronJob](../master/jobs/Job-CronJob.md)
+  - [Init Container](../master/InitContainer/InitContainer.md)
+  - [PV-PVC](../master/PV-PVC/PV-PVC.md)
+  - [Secrets](../main/secrets/Secrets.md)
+  - [ConfigMaps](../master/ConfigMaps/ConfigMaps.md)
+  - [ResourceQuota](../master/ResourceQuota/ResourceQuota.md)
+  - [NFS](../master/NFS/NFS.md)
+  - [Statefulsets](../master/Statefulsets/Statefulsets.md)
+  - [Helm](../master/Helm/Helm.md)
+  - [Kustomize](../main/kustomize/Kustomize.md)
+  - [HPA](../master/HPA/HPA.md)
+  - [VPA](../master/VPA/VPA.md)
+  - [RemoteAccessToCluster](../master/RemoteAccessToCluster/RemoteAccessToCluster.md)
+  - [DevSpace](../master/devspace/DevSpace.md)
+  - [NameSpaceStuckIntoTermination](../master/nstermination/nstermination.md)
+  - [kubefwd](../master/kubefwd/kubefwd.md)
 
 #### Relative repositories:
-  - [Kind](https://github.com/rfinland/Kind) , [Parse](https://github.com/rfinland/parse) , [ArgoCD](https://github.com/rfinland/argocd) , [Vcluster](https://github.com/rfinland/vcluster) , [Devspace-Vcluster-Argocd-prod](https://github.com/rfinland/Devspace-vcluster-argocd-prod) , [Nomad](https://github.com/rfinland/nomad) , [Bitnami-charts](https://github.com/rfinland/bitnami-charts) , [Okteto](https://github.com/rfinland/Okteto-HelloWorld) , [Autoscaler](https://github.com/rfinland/autoscaler) , [Tilt](https://github.com/rfinland/tilt-example-html) , [NFS Subdir External Provisioner](https://github.com/rfinland/nfs-subdir-external-provisioner)
+  - [Kind](https://github.com/rfinland/Kind) , [ParseChart](https://github.com/rfinland/ParseChart) , [ArgoCD](https://github.com/rfinland/argocd) , [Vcluster](https://github.com/rfinland/vcluster) , [Devspace-Vcluster-Argocd-prod](https://github.com/rfinland/Devspace-vcluster-argocd-prod) , [Nomad](https://github.com/rfinland/nomad) , [Bitnami-charts](https://github.com/rfinland/bitnami-charts) , [Okteto](https://github.com/rfinland/Okteto-HelloWorld) , [Autoscaler](https://github.com/rfinland/autoscaler) , [Tilt](https://github.com/rfinland/tilt-example-html) , [NFS Subdir External Provisioner](https://github.com/rfinland/nfs-subdir-external-provisioner)
 
 Have fun!
