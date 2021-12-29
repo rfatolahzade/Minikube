@@ -76,7 +76,7 @@ minikube kubectl -- get pods -A
   - [Job-CronJob](../master/jobs/Job-CronJob.md)
   - [Init Container](../master/InitContainer/InitContainer.md)
   - [PV-PVC](../master/PV-PVC/PV-PVC.md)
-  - [Secrets](../main/Secrets/Secrets.md)
+  - [Secrets](../main/secrets/Secrets.md)
   - [ConfigMaps](../master/ConfigMaps/ConfigMaps.md)
   - [ResourceQuota](../master/ResourceQuota/ResourceQuota.md)
   - [NFS](../master/NFS/NFS.md)
