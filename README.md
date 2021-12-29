@@ -82,7 +82,7 @@ minikube kubectl -- get pods -A
   - [NFS](../master/NFS/NFS.md)
   - [Statefulsets](../master/Statefulsets/Statefulsets.md)
   - [Helm](../master/Helm/Helm.md)
-  - [Kustomize](../main/Kustomize/Kustomize.md)
+  - [Kustomize](../main/kustomize/Kustomize.md)
   - [HPA](../master/HPA/HPA.md)
   - [VPA](../master/VPA/VPA.md)
   - [RemoteAccessToCluster](../master/RemoteAccessToCluster/RemoteAccessToCluster.md)
