@@ -15,7 +15,7 @@ In some cases you need these packages:
 apt install -y socat
 apt install -y  apt-transport-https
 apt install -y conntrack
-apt install -y  virtualbox virtualbox-ext-pack
+#apt install -y  virtualbox virtualbox-ext-pack
 ```
 # Installation
 To install the latest minikube stable release on x86-64 Linux using binary download:
