@@ -51,6 +51,18 @@ EOF
 I use these aliases for minikube,k3s,k3d,vcluster 
 
 # Start cluster
+You have to (maybe there are other solutions) run cluster on non-root users(in my case ubuntu):
+```bash
+usermod -aG sudo ubuntu
+```
+And then run "visudo" and add:
+```bash
+ubuntu ALL=(ALL) NOPASSWD:ALL
+```
+Save the sudoers file and run:
+```bash
+sudo usermod -aG docker $USER && newgrp docker
+```
 From a terminal with administrator access (but not logged in as root), run:
 ```bash
 minikube start 
