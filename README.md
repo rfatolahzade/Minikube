@@ -45,6 +45,7 @@ alias kdr='k describe replicaset'
 alias vk='k --kubeconfig'
 alias kcg='k config get-contexts'
 alias kgaks='watch -x kubectl get all -o wide -n kube-system'
+alias kapi='kubectl api-resources'
 
 EOF
 ```
